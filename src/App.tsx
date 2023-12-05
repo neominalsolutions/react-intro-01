@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import ClassComponentSample from './samples/ClassComponentSample';
+import TodoPage from './pages/todo/TodoPage';
 // Function Componentlerde lifecyle method yok bunun yerine özel function ifadeleri yani hook yapıları kullanılıyor.
 // function component state takibi useState hook ile geçekleşir.
 // array deconstructon.
@@ -83,11 +84,11 @@ function App() {
 		<>
 			<div className="App">
 				<button onClick={onVisibleChange}>Visible/Not Visible</button>
-
 				{/* {(random === 1 || visible) && <ClassComponentSample />} */}
 				{/* {(random === 1 && visible) && <ClassComponentSample />} */}
-				{visible && <ClassComponentSample title="component1" count={1} />}
-				{visible && <ClassComponentSample title="component2" count={3} />}
+				{/* {visible && <ClassComponentSample title="component1" count={1} />}
+				{visible && <ClassComponentSample title="component2" count={3} />} */}
+				<TodoPage />
 			</div>
 		</>
 	);
