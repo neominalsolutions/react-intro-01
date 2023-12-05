@@ -1,16 +1,26 @@
 import { Component, Fragment, ReactNode } from 'react';
 
+// Her componentin kendine özgü props değeri olduğu için propslar component bazlı oluşturulular.
+type ClassComponentProps = {
+	count: number; // required
+	title?: string; // props üzerinden bu değerler gönderilmek zorunda değil
+};
+
+// state de componentin local state durumunu yönettiği için burasıda component bazlı tanımlanır.
 type CounterState = {
 	count: number; // 0
 };
-class ClassComponentSample extends Component {
+// Not: State yapılarına initial değerleri paremetreik olarak aktarmamızı sağlayan component'e dışarıdan attribute olarak gönderilen değerler props diyoruz
+class ClassComponentSample extends Component<
+	ClassComponentProps
+> {
 	state!: CounterState; // ! undefinded değer tanımları için kullanılır
 	// eslint-disable-next-line @typescript-eslint/no-useless-constructor
-	constructor(props: any) {
+	constructor(props:ClassComponentProps) {
 		super(props);
 		console.log('constructor');
 		// state initial değer atama constructor üzerinden verilir.
-		this.state = { count: 1 }; // state initial değer aktarma işlemi
+		this.state = { count: this.props.count }; // state initial değer aktarma işlemi
 		// state değişimi olan methodları class component içerisinde contructorda initialize ediyoruz.
 		this.increase = this.increase.bind(this); // react class component state değişiminde method binding yapmamız gerekir.
 	}
@@ -36,6 +46,9 @@ class ClassComponentSample extends Component {
 		alert('Deneme');
 		// Not: SetState sonrası tekrar render life-cycle method çalışır.
 		// Not: setState güncellemesi asenkron çalışır.
+
+		// readOnly olduğu için props değeri set edemiyoruz.
+		//this.props.title = 'title15'; invalid.
 	}
 
 	componentDidMount(): void {
@@ -68,6 +81,7 @@ class ClassComponentSample extends Component {
 		console.log('...rendering');
 		return (
 			<>
+				<h1>{this.props.title}</h1>
 				<div>Sayaç: {this.state.count}</div>
 				<div>
 					<button onClick={this.increase}>(+)</button>

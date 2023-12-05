@@ -78,6 +78,7 @@ function App() {
 	// );
 
 	//3.yöntem else durumunda bir çıktı yoksa aşağıdaki condition ifadesi kullanılabilir.
+	// <a href='www.google.com' title='sdsasd'></a>
 	return (
 		<>
 			<div className="App">
@@ -85,7 +86,8 @@ function App() {
 
 				{/* {(random === 1 || visible) && <ClassComponentSample />} */}
 				{/* {(random === 1 && visible) && <ClassComponentSample />} */}
-				{visible && <ClassComponentSample />}
+				{visible && <ClassComponentSample title="component1" count={1} />}
+				{visible && <ClassComponentSample title="component2" count={3} />}
 			</div>
 		</>
 	);
