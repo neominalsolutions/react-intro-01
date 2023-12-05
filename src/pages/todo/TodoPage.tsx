@@ -39,6 +39,7 @@ function TodoPage() {
 	const onComplete = (id: number) => {
 		const result = window.confirm('Tamamlamak istediğinize emin misiniz?');
 
+        // list component logic olduğundan burada tanımladık.
 		if (result) {
 			const currentState = todos.find((x) => x.id === id);
 

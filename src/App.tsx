@@ -3,6 +3,7 @@ import logo from './logo.svg';
 import './App.css';
 import ClassComponentSample from './samples/ClassComponentSample';
 import TodoPage from './pages/todo/TodoPage';
+import TodoNewPage from './pages/todo/TodoNewPage';
 // Function Componentlerde lifecyle method yok bunun yerine özel function ifadeleri yani hook yapıları kullanılıyor.
 // function component state takibi useState hook ile geçekleşir.
 // array deconstructon.
@@ -88,7 +89,8 @@ function App() {
 				{/* {(random === 1 && visible) && <ClassComponentSample />} */}
 				{/* {visible && <ClassComponentSample title="component1" count={1} />}
 				{visible && <ClassComponentSample title="component2" count={3} />} */}
-				<TodoPage />
+				{/* <TodoPage /> */}
+				<TodoNewPage />
 			</div>
 		</>
 	);
