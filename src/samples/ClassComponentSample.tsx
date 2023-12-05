@@ -57,6 +57,12 @@ class ClassComponentSample extends Component {
 		// bir önceki state yada prop değerlerini yakalayabiliriz.
 	}
 
+	componentWillUnmount(): void {
+		console.log('componentWillUnmount');
+		// Not: Component domdan çıktığında tetiklenir.
+		// clean up işlemlerini burada yaparız.
+	}
+
 	render(): ReactNode {
 		// component doma ilk girişinde tetiklenir.
 		console.log('...rendering');
